@@ -25,7 +25,7 @@ angular.module('starter.controllers', [])
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
     $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
-    $http.post('http://catch-me-if-you-can.herokuapp.com/apis/authenticate', $scope.loginData).
+    $http.post('http://catch-me-api.herokuapp.com/users/authenticate', $scope.loginData).
     success(function(data){
       console.log(data);
     });
