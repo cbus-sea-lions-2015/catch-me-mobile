@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http) {
   // Form data for the login modal
   $scope.loginData = {};
   $scope.runner_id = {};
@@ -22,9 +22,13 @@ angular.module('starter.controllers', [])
   };
 
   // Perform the login action when the user submits the login form
-  $scope.doLogin = function(Auth) {
+  $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
-    $http.post("/apis/authenticate", $scope.loginData).success(function(data, status){});
+    $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+    $http.post('http://catch-me-if-you-can.herokuapp.com/apis/authenticate', $scope.loginData).
+    success(function(data){
+      console.log(data);
+    });
 
 
     // Simulate a login delay. Remove this and replace with your login
