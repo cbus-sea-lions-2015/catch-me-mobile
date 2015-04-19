@@ -1,4 +1,4 @@
-starter.controller('CoursesCtrl', function($scope, $ionicModal, $timeout, $http, $location) {
+    starter.controller('CoursesCtrl', function($scope, $ionicModal, $timeout, $http, $location) {
     // Form data for the login modal
     $scope.loginData = {};
     $scope.registerData = {};
@@ -36,6 +36,20 @@ starter.controller('CoursesCtrl', function($scope, $ionicModal, $timeout, $http,
         $scope.$broadcast('timer-stop');
         $scope.timerRunning = false;
     };
+
+
+    $scope.geolocationData = function() {
+      
+      function showPosition(position) {
+      document.getElementById('location').innerHTML = position.coords.latitude ;
+      console.log(position);
+      }
+       
+       function getLocationData() {
+        navigator.geolocation.getCurrentPosition(showPosition);
+       };
+       getLocationData()
+    }
 
     $scope.$on('timer-stopped', function(event, data) {
         console.log('Timer Stopped - data = ', data);

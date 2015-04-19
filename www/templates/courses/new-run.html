@@ -16,6 +16,13 @@
         <button ng-click="resumeTimer()" ng-disabled="timerRunning">Resume Timer</button>
         <button ng-click="stopTimer()" ng-disabled="!timerRunning">Stop Timer</button>
     </div>
+
+    <div class="buttons">
+      <button class="button button-clear" ng-click="geolocationData()">Location</button>
+    </div>
+     <h4 id="location"></h4>
+
+
   </ion-content>
 </ion-modal-view>
 
