@@ -1,4 +1,4 @@
-starter.controller('CoursesCtrl', function($scope, $ionicModal, $timeout, $http, $location, $interval) {
+starter.controller('CoursesCtrl', function($scope, $ionicModal, $timeout, $http, $location, $interval, $window) {
    // Form data for the login modal
    $scope.loginData = {};
    $scope.registerData = {};
@@ -24,7 +24,8 @@ starter.controller('CoursesCtrl', function($scope, $ionicModal, $timeout, $http,
    $scope.closeRun = function() {
        if (confirm("Are you sure??")) {
            $scope.startRun.modal.hide();
-           $interval.cancel()
+           $interval.cancel($scope.geoLocationData);
+           $window.clearInterval($scope.geoLocationData); 
        }
    };
 
@@ -38,17 +39,24 @@ starter.controller('CoursesCtrl', function($scope, $ionicModal, $timeout, $http,
    $scope.resumeTimer = function() {
        $scope.$broadcast('timer-resume');
        $scope.timerRunning = true;
+       geoLocationData();
    };
 
    $scope.stopTimer = function() {
        $scope.$broadcast('timer-stop');
        $scope.timerRunning = false;
-       // clearInterval()
+       $window.clearInterval($scope.geoLocationData); 
+       $scope.startRun.modal.hide();
    };
 
-   $scope.geoLocationData = $interval(function() {
-     
-     function showPosition(position) {
+
+
+   $scope.geoLocationData = $window.setInterval(  
+        $scope.getLocationData
+        ,3000 );
+
+
+     $scope.showPosition = function(position) {
 
      // console.log(position);
      document.getElementById('location').innerHTML = position.coords.latitude ;
@@ -57,15 +65,14 @@ starter.controller('CoursesCtrl', function($scope, $ionicModal, $timeout, $http,
                             longitude: position.coords.longitude,
                             altitude: position.coords.altitude}
                              
-     $http.post('http://catch-me-api.herokuapp.com/courses_points', {course_point: course_position, course_id: $scope.course_id})
-     // console.log(course_position);
+     return $http.post('http://catch-me-api.herokuapp.com/courses_points', {course_point: course_position, course_id: $scope.course_id})
+    
      }
       
-      function getLocationData() {
-       navigator.geolocation.getCurrentPosition(showPosition);
+      $scope.getLocationData = function() {
+       return navigator.geolocation.getCurrentPosition($scope.showPosition);
       };
-      getLocationData();
-   },3000);
+      // getLocationData();
 
 
    $scope.$on('timer-stopped', function(event, data) {

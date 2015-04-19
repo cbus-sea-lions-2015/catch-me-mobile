@@ -7,21 +7,14 @@
     </div>
   </ion-header-bar>
   <ion-content>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="closeRun()">Stop</button>
-    </div>
      <div>
       <h1 style="text-align: center"><timer>{{hours}}:{{minutes}}:{{seconds}}:{{millis}}</timer></h1>
-        <button ng-click="startTimer()" ng-disabled="timerRunning">Start Timer</button>
-        <button ng-click="resumeTimer()" ng-disabled="timerRunning">Resume Timer</button>
-        <button ng-click="stopTimer()" ng-disabled="!timerRunning">Stop Timer</button>
+        <!-- <button ng-click="startTimer()" ng-disabled="timerRunning">Start Timer</button> -->
+        <!-- <head>we will haddd a pause button when u pay for this app</head> -->
+        <!-- <button ng-click="resumeTimer()" ng-disabled="timerRunning">Resume Timer</button> -->
+        
     </div>
-
-    <div class="buttons">
-      <button class="button button-clear" ng-click="run();">Location</button>
-
-    </div>
-
+<button style="padding: auto" ng-click="stopTimer()" ng-disabled="!timerRunning">Stop Timer</button>
 
      <h4 id="location"></h4>
 
