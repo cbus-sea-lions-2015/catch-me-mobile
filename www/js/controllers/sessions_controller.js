@@ -27,13 +27,13 @@ starter.controller('SessionsCtrl', function($scope, $ionicModal, $timeout, $http
       if (response === false) {
         alert("Username or password did not match");
       } else {
-        console.log(response);
+        $scope.closeLogin();
       }
     });
 
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 250);
+    // $timeout(function() {
+    //   $scope.closeLogin();
+    // }, 250);
   };
 })
 

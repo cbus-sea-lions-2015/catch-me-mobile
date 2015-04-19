@@ -23,8 +23,12 @@ starter.controller('UsersCtrl', function($scope, $ionicModal, $timeout, $http) {
     $http.post('http://catch-me-api.herokuapp.com/users', {register_data: $scope.registerData}).
     success(function(response){
       if (response === false){
+          console.log("this failed");
+          console.log(response);
         alert("that shit is invalid or taken");
       } else {
+          console.log("this is your user id");
+        console.log(response);
         $scope.closeRegister();
       }
     });
