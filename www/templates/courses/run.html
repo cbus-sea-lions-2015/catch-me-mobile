@@ -1,12 +1,8 @@
 <ion-view view-title="Run">
   <ion-content>
     <h1>Here where we can add new routes.</h1>
-    <div ng-controller="CoursesCtrl" class="buttons">
-      <h1 style="text-align: center"><timer>{{hours}}:{{minutes}}:{{seconds}}:{{millis}}</timer></h1>
-        <button ng-click="startTimer()" ng-disabled="timerRunning">Start Timer</button>
-        <button ng-click="resumeTimer()" ng-disabled="timerRunning">Resume Timer</button>
-        <button ng-click="stopTimer()" ng-disabled="!timerRunning">Stop Timer</button>
+     <div ng-controller="CoursesCtrl" class="buttons">
+      <button class="button button-clear" ng-click="startRun()">Start Running!</button>
     </div>
-
   </ion-content>
 </ion-view>

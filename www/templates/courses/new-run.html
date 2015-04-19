@@ -10,16 +10,11 @@
     <div class="buttons">
       <button class="button button-clear" ng-click="closeRun()">Stop</button>
     </div>
-
-<!-- <div ng-controller="StopCtrl">
-<h1>{{StopCtrl.data.value}}</h1>
-<h3>{{StopCtrl.data.laps|json}}</h3>
-<button ng-click='StopCtrl.start()'>Start</button>
-<button ng-click='StopCtrl.stop()'>Stop</button>
-<button ng-click='StopCtrl.reset()'>Reset</button>
-<button ng-click='StopCtrl.lap()'>Lap</button> -->
-
-
+     <div>
+      <h1 style="text-align: center"><timer>{{hours}}:{{minutes}}:{{seconds}}:{{millis}}</timer></h1>
+        <button ng-click="startTimer()" ng-disabled="timerRunning">Start Timer</button>
+        <button ng-click="resumeTimer()" ng-disabled="timerRunning">Resume Timer</button>
+        <button ng-click="stopTimer()" ng-disabled="!timerRunning">Stop Timer</button>
     </div>
   </ion-content>
 </ion-modal-view>
