@@ -54,6 +54,16 @@ angular.module('starter', ['ionic','starter.controllers','timer'])
       views: {
         'menuContent': {
           templateUrl: "templates/courses/run.html",
+          controller: 'StarterCtrl'
+        }
+      }
+    })
+
+      .state('app.runs', {
+      url: "/runs",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/courses/new-run.html",
           controller: 'CoursesCtrl'
         }
       }
