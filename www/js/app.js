@@ -4,7 +4,9 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+var starter =  angular.module('starter.controllers', []);
+angular.module('starter', ['ionic','starter.controllers','timer'])
+
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -38,20 +40,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
-  .state('app.browse', {
-    url: "/browse",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/browse.html"
-      }
-    }
-  })
 
   .state('app.profile', {
     url: "/profile",
     views: {
       'menuContent': {
-        templateUrl: "templates/profile.html"
+        templateUrl: "templates/users/profile.html"
       }
     }
   })
@@ -59,21 +53,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: "/courses/new",
       views: {
         'menuContent': {
-          templateUrl: "templates/run.html",
+          templateUrl: "templates/courses/run.html",
           controller: 'CoursesCtrl'
         }
       }
     })
 
-  .state('app.single', {
-    url: "/playlists/:playlistId",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/playlist.html",
-        controller: 'PlaylistCtrl'
-      }
-    }
-  });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/search');
+  $urlRouterProvider.otherwise('/app');
 });
