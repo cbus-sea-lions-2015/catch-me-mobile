@@ -69,6 +69,16 @@ angular.module('starter', ['ionic','starter.controllers','timer'])
       }
     })
 
+       .state('app.show', {
+      url: "/show",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/courses/show.html",
+          controller: 'MapCtrl'
+        }
+      }
+    })
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/profile');
 });
