@@ -1,16 +1,25 @@
-<ion-view view-title="Run">
-  <ion-content>
-    <h1>Recent Runs</h1>
-     <div ng-controller="StarterCtrl" class="buttons">
-      <ion-item ng-click="startRun()" nav-clear menu-close href="#/app/runs">
-          Start Running!!!
-        </ion-item>
-    </div>
-  </ion-content>
+<ion-view view-title="Recent Runs">
+    <ion-content>
+        <div ng-controller="StarterCtrl as starter"   class="buttons">
+            <ion-item ng-click="starter.startRun()"   nav-clear menu-close href="#/app/runs">
+                Start Running!!!
+            </ion-item>
+            <ion-item collection-repeat="course in courses">
+                <h3>Running sucks</h3>
+                <p>Dar Salam, Tanzania - 15/05/2020</p>
+                <div class="row">
+                    <div class="col">Ag. Speed</div>
+                    <div class="col">Total Time</div>
+                    <div class="col">Distance</div>
+                    <div class="col">Calories</div>
+                </div>
+                <div class="row">
+                    <div class="col"> 5 km/h</div>
+                    <div class="col"> 10 km </div>
+                    <div class="col">10 km </div>
+                    <div class="col"> 1000 cal</div>
+                </div>
+            </ion-item>
+        </div>
+    </ion-content>
 </ion-view>
-
-
-
-
-  
-

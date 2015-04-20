@@ -1,12 +1,23 @@
-
-<body ng-controller="MapCtrl">
-  <ion-header-bar class="bar-dark" >
-    <h1 class="title">Map</h1>
-  </ion-header-bar>
-  <ion-content class="bar-dark" ng-init="init()">
-    <div id="map" data-tap-disabled="true"></div>
-  </ion-content>
-  <ion-footer-bar class="bar-dark">
-    <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Find Me</a>
-  </ion-footer-bar>
-</body>
+<ion-header-bar class="bar-dark" >
+   <h2 class="title">Map</h2>
+</ion-header-bar>
+<ion-content class="bar-dark" ng-init="init()">
+   <h1>Running sucks</h1>
+   <p>Dar Salam, Tanzania - 15/05/2020</p>
+   <div id="map" data-tap-disabled="true"></div>
+   <div class="row">
+      <div class="col">Ag. Speed</div>
+      <div class="col">Total Time</div>
+      <div class="col">Distance</div>
+      <div class="col">Calories</div>
+   </div>
+   <div class="row">
+      <div class="col"> 5 km/h</div>
+      <div class="col"> 10 km </div>
+      <div class="col">10 km </div>
+      <div class="col"> 1000 cal</div>
+   </div>
+</ion-content>
+<ion-footer-bar class="bar-dark">
+   <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Find Me</a>
+</ion-footer-bar>

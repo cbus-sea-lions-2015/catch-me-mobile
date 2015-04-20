@@ -30,7 +30,6 @@ starter.controller('MapCtrl', function($scope, $ionicLoading, $compile) {
 
     $scope.map = map;
   }
-  // google.maps.event.addDomListener(window, 'load', $scope.init);
   
   $scope.centerOnMe = function() {
     if(!$scope.map) {

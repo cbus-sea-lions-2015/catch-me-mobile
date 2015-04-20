@@ -50,7 +50,7 @@ angular.module('starter', ['ionic','starter.controllers','timer'])
     }
   })
     .state('app.courses', {
-      url: "/courses/new",
+      url: "/courses",
       views: {
         'menuContent': {
           templateUrl: "templates/courses/run.html",
@@ -80,5 +80,5 @@ angular.module('starter', ['ionic','starter.controllers','timer'])
     })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/profile');
+  $urlRouterProvider.otherwise('/app/login');
 });

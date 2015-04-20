@@ -8,7 +8,6 @@ starter.controller('CoursesCtrl', function( $scope, $ionicModal, $timeout, $http
 
 
    $scope.startTimer = function() {
-
        $scope.$broadcast('timer-start');
        $scope.timerRunning = true;
    };
@@ -23,6 +22,7 @@ starter.controller('CoursesCtrl', function( $scope, $ionicModal, $timeout, $http
        $scope.$broadcast('timer-stop');
        $scope.timerRunning = false;
        $interval.cancel($scope.geoLocationData); 
+        $location.url("/app/show");
    };
 
      $scope.showPosition = function(position) {
