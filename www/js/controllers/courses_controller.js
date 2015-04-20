@@ -22,7 +22,10 @@ starter.controller('CoursesCtrl', function( $scope, $ionicModal, $timeout, $http
        $scope.$broadcast('timer-stop');
        $scope.timerRunning = false;
        $interval.cancel($scope.geoLocationData); 
-        $location.url("/app/show");
+       $location.url("/app/show");
+
+      // var city = navigator.geolocation.getCurrentPosition($scope.showPosition)
+
    };
 
      $scope.showPosition = function(position) {

@@ -1,9 +1,9 @@
 starter.controller('MapCtrl', function($scope, $ionicLoading, $compile, $http) {
    
    $scope.init = function () {
+       
        $http.get("http://catch-me-api.herokuapp.com/courses/"+58+"/courses_points")
        .success(function (locations) {  
-
     var center = Math.round(locations.length/2);
     var myLatlng = new google.maps.LatLng(locations[center].latitude,locations[center].longitude);
     
@@ -34,6 +34,7 @@ starter.controller('MapCtrl', function($scope, $ionicLoading, $compile, $http) {
   
     $scope.map = map;
     })
+
   }
   
 });
