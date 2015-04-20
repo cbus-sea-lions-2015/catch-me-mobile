@@ -1,4 +1,4 @@
-starter.controller('LoginCtrl', function (store, $scope, $location, auth) {
+starter.controller('LoginCtrl', function (store, $scope, $location, auth, $state) {
   $scope.login = function() {
     auth.signin({
       authParams: {
@@ -19,10 +19,11 @@ starter.controller('LoginCtrl', function (store, $scope, $location, auth) {
     console.log('signout');
     store.remove('profile');
     store.remove('token');
-    // store.remove('refreshToken');
-    // $location.path('/app/profile');
-    $location.path('/app/courses/new');
+    // $location.path('/login');
+    document.location.reload(true);
+
   }
+
 })
 
 
