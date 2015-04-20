@@ -14,37 +14,14 @@ starter.controller('StarterCtrl', function($scope, $http, $window) {
        });
    };
    
-   $scope.courses = [
-  {"id":1,
-  "user_id":1,
-  "average_speed":null,
-  "duration":null,
-  "distance":null,
-  "country":"Brasil",
-  "city":"Manaus",
-  "name":"pain road",
-  "created_at":"2015-04-19T20:45:01.364Z",
-  "updated_at":"2015-04-19T20:45:01.364Z"},
-  {"id":1,
-  "user_id":1,
-  "average_speed":null,
-  "duration":null,
-  "distance":null,
-  "country":"Brasil",
-  "city":"Manaus",
-  "name":"pain road",
-  "created_at":"2015-04-19T20:45:01.364Z",
-  "updated_at":"2015-04-19T20:45:01.364Z"},
-  {"id":1,
-  "user_id":1,
-  "average_speed":null,
-  "duration":null,
-  "distance":null,
-  "country":"Brasil",
-  "city":"Manaus",
-  "name":"pain road",
-  "created_at":"2015-04-19T20:45:01.364Z",
-  "updated_at":"2015-04-19T20:45:01.364Z"}
-   ]
+    var user_id = $window.localStorage.userId
+
+    $http.get("http://catch-me-api.herokuapp.com/users/"+13+"/courses")
+      .success(function (response) {
+          console.log(response)
+      $scope.courses =response;
+    });
+ 
+
   
  });
