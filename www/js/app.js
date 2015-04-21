@@ -5,7 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 var starter = angular.module('starter.controllers', []);
-angular.module('starter.constants',[]).constant('apiUrl','https://catch-me-api.herokuapp.com/');
+// angular.module('starter.constants',[]).constant('apiUrl','https://catch-me-api.herokuapp.com');
+angular.module('starter.constants',[]).constant('apiUrl','http://localhost:3000');
 angular.module('starter', ['ionic', 'starter.controllers','starter.constants', 'starter.services', 'timer', 'auth0',
   'angular-storage',
   'angular-jwt'
@@ -52,12 +53,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.constants', '
   $stateProvider
 
   // This is the state where you'll show the login
-    .state('login', {
-    url: '/login',
-    templateUrl: 'templates/login.html',
-    controller: 'LoginCtrl',
-  })
- 
+
   .state('app', {
     url: "/app",
     abstract: true,
@@ -90,7 +86,17 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.constants', '
     url: "/courses",
     views: {
       'menuContent': {
-        templateUrl: "templates/courses/run.html"
+        templateUrl: "templates/courses/index.html"
+      }
+    }
+  })
+
+  .state('app.runs', {
+    url: "/courses/new",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/courses/new.html",
+        controller: 'CoursesCtrl'
       }
     }
   })
@@ -105,16 +111,6 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.constants', '
     data: {
     requiresLogin: false
   }
-  })
-
-  .state('app.runs', {
-    url: "/runs",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/courses/new-run.html",
-        controller: 'CoursesCtrl'
-      }
-    }
   })
 
   .state('app.show', {
