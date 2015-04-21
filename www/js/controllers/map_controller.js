@@ -1,8 +1,5 @@
 starter.controller('MapCtrl', function($window, $scope, $ionicLoading, $compile, $http) {
    
-     
-    
-
     var course_id = $window.localStorage.course_id
 
     $http.get("http://catch-me-api.herokuapp.com/courses/"+course_id)
