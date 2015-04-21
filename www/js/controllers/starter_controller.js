@@ -11,7 +11,7 @@ starter.controller('StarterCtrl', function(auth, $scope, $http, $location, $wind
 
          }
        });
-    $location.url("/app/runs");
+    $location.url("/app/courses/new");
    };
    
     var auth_id = auth.profile.identities[0].user_id;
