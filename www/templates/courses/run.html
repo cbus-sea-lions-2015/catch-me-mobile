@@ -1,16 +1,25 @@
-<ion-view view-title="Run">
-  <ion-content>
-    <h1>Recent Runs</h1>
-     <div ng-controller="StarterCtrl" class="buttons">
-      <ion-item ng-click="startRun()" nav-clear menu-close href="#/app/runs">
-          Start Running!!!
-        </ion-item>
-    </div>
-  </ion-content>
+<ion-view view-title="Recent Runs">
+    <ion-content>
+        <div ng-controller="StarterCtrl as starter"   class="buttons">
+            <ion-item ng-click="startRun()"   nav-clear menu-close>
+                Start Running!!!
+            </ion-item>
+            <ion-item collection-repeat="course in courses">
+                <a href={{"#/app/show/"+course.id}} >{{course.name}}</a>
+                <p>{{course.city}}, {{course.country}} - {{course.created_at}}</p>
+                <div class="row">
+                    <div class="col">Ag. Speed</div>
+                    <div class="col">Total Time</div>
+                    <div class="col">Distance</div>
+                    <div class="col">Calories</div>
+                </div>
+                <div class="row">
+                    <div class="col"> {{course.average_speed}} km/h</div>
+                    <div class="col"> {{course.duration}} hrs </div>
+                    <div class="col"> {{course.distance}} km </div>
+                    <div class="col"> 1000 cal</div>
+                </div>
+            </ion-item>
+        </div>
+    </ion-content>
 </ion-view>
-
-
-
-
-  
-

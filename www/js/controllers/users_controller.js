@@ -1,4 +1,4 @@
-starter.controller('UsersCtrl', function($scope, $ionicModal, $timeout, $http) {
+starter.controller('UsersCtrl', function($window, $scope, $ionicModal, $location, $timeout, $http) {
   // Form data for the login modal
   $scope.registerData = {};
   // Create the login modal that we will use later
@@ -30,6 +30,8 @@ starter.controller('UsersCtrl', function($scope, $ionicModal, $timeout, $http) {
           console.log("this is your user id");
         console.log(response);
         $scope.closeRegister();
+        $location.url("/app/courses");
+        $window.localStorage.userId = response;
       }
     });
   };
