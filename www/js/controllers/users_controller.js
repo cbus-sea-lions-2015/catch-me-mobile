@@ -1,4 +1,4 @@
-starter.controller('UsersCtrl', function($window, $scope, $ionicModal, $location, $timeout, $http) {
+starter.controller('UsersCtrl', function($window, $scope, $ionicModal, $location, $timeout, $http, apiUrl) {
   // Form data for the login modal
   $scope.registerData = {};
   // Create the login modal that we will use later
@@ -20,7 +20,7 @@ starter.controller('UsersCtrl', function($window, $scope, $ionicModal, $location
   $scope.doRegister = function() {
     console.log("Doing Register", {register_data: $scope.registerData});
 
-    $http.post('http://catch-me-api.herokuapp.com/users', {register_data: $scope.registerData}).
+    $http.post(apiUrl+'/users', {register_data: $scope.registerData}).
     success(function(response){
       if (response === false){
           console.log("this failed");

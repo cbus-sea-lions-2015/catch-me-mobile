@@ -1,4 +1,4 @@
-starter.controller('CoursesCtrl', function( $scope, $ionicModal, $timeout, $http, $location, $interval, $window, auth) {
+starter.controller('CoursesCtrl', function( apiUrl, $scope, $ionicModal, $timeout, $http, $location, $interval, $window, auth) {
    // Form data for the login modal
    $scope.loginData = {};
    $scope.registerData = {};
@@ -33,7 +33,7 @@ starter.controller('CoursesCtrl', function( $scope, $ionicModal, $timeout, $http
          average_speed: "20"
        }
 
-      $http.put("http://catch-me-api.herokuapp.com/courses/"+$window.localStorage.course_id, {id: 1,course: course})
+      $http.put(apiUrl+"/courses/"+$window.localStorage.course_id, {course: course})
       .success(function (response) {
           console.log('success!!!!!')
       $scope.courses =response;
@@ -47,7 +47,7 @@ starter.controller('CoursesCtrl', function( $scope, $ionicModal, $timeout, $http
                                 longitude: position.coords.longitude,
                                 altitude: position.coords.altitude} 
         console.log(course_position)                   
-        $http.post('http://catch-me-api.herokuapp.com/courses_points', { course_point: course_position, course_id: $window.localStorage.course_id })
+        $http.post(apiUrl+'/courses_points', { course_point: course_position, course_id: $window.localStorage.course_id })
     }
       
       $scope.getLocationData = function() {
