@@ -17,16 +17,16 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item ng-controller="LoginCtrl" ng-click="login()">
+        <ion-item menu-close ng-controller="LoginCtrl" ng-click="login()">
           Login
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/profile">
+        <ion-item  menu-close href="#/app/profile">
           Profile
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/courses">
+        <ion-item ng-controller="StarterCtrl" ng-click="myRuns()" menu-close>
           My Runs
         </ion-item>
-        <ion-item ng-controller="LoginCtrl" ng-click="logout()" value="Log out">
+        <ion-item ng-controller="LoginCtrl" ng-click="logout()">
           Logout
         </ion-item>
       </ion-list>

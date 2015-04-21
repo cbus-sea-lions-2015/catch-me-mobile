@@ -38,7 +38,8 @@ starter.controller('CoursesCtrl', function( apiUrl, $scope, $ionicModal, $timeou
           console.log('success!!!!!')
       $scope.courses =response;
        });
-   
+
+      document.location.reload(true);
    };
 
      $scope.showPosition = function(position) {
