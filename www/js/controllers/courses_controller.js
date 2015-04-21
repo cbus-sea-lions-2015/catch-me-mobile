@@ -30,7 +30,7 @@ starter.controller('CoursesCtrl', function( $scope, $ionicModal, $timeout, $http
           var course_position = {latitude: position.coords.latitude,
                                 longitude: position.coords.longitude,
                                 altitude: position.coords.altitude}                    
-        $http.post('http://catch-me-api.herokuapp.com/courses_points', { course_point: course_position, course_id: $window.localStorage.course_id })
+        $http.post('http://localhost:3000/courses_points', { course_point: course_position, course_id: $window.localStorage.course_id })
     }
       
       $scope.getLocationData = function() {

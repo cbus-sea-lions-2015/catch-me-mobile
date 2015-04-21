@@ -9,7 +9,8 @@ starter.controller('LoginCtrl', function (store, $scope, $location, auth, $state
       store.set('profile', profile);
       store.set('token', token);
       store.set('refreshToken', refreshToken);
-      $location.path('/app/profile');
+      // $location.path('/app/profile');
+      console.log('logging in');
     }, function(error) {
     });
   }

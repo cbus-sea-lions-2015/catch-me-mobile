@@ -56,8 +56,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     templateUrl: 'templates/login.html',
     controller: 'LoginCtrl',
   })
-
-
+   
+  // .state('index',{
+  //   url: "/index",
+  //   views: {
+  //       'menuContent': {
+  //         templateUrl: "templates/users/profile.html"
+  //       }
+  //     }
+  //   // data: {
+  //   //   requiresLogin: false
+  //   // }
+  // })
+ 
   .state('app', {
     url: "/app",
     abstract: true,
@@ -67,6 +78,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       requiresLogin: true
     }
   })
+
+ 
+
 
   .state('app.search', {
     url: "/search",
@@ -85,6 +99,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
       }
     })
+
+    .state('app.index', {
+      url: "/index",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/index.html"
+        }
+      },
+      data: {
+      requiresLogin: false
+    }
+    })
+
+
     .state('app.courses', {
       url: "/courses/new",
       views: {
@@ -116,7 +144,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/profile');
+  $urlRouterProvider.otherwise('/app/index');
 
 
   authProvider.init({
