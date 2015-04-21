@@ -9,7 +9,7 @@ starter.controller('LoginCtrl', function (store, $scope, $location, $http, auth,
       store.set('profile', profile);
       store.set('token', token);
       store.set('refreshToken', refreshToken);
-      // $http.post('http://catch-me-api.herokuapp.com/users', {auth_id: auth.profile.identities[0].user_id});
+      console.log(auth.profile.identities[0].user_id)
       $http.post(apiUrl+"/users", {auth_id: auth.profile.identities[0].user_id});
       console.log('logging in');
     }, function(error) {

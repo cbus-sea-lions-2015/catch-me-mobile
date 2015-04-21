@@ -1,18 +1,22 @@
 starter.controller('MapCtrl', function(apiUrl, $window, $scope, $ionicLoading, $compile, $http) {
-   
-    var course_id = $window.localStorage.course_id
-
-    $http.get(apiUrl+"/courses/"+course_id)
-      .success(function (response) {
-      $scope.course =response;
-    });
+   angular.element(document).ready(function () {
+    $scope.init();
+   });
 
    $scope.makeItTrack = function () {
      console.log('asdasdasd')
    }
 
    $scope.init = function () {
-       
+
+      var course_id = $window.localStorage.course_id
+
+    $http.get(apiUrl+"/courses/"+course_id)
+      .success(function (response) {
+      $scope.course =response;
+    });
+
+    
        var course_id = $window.localStorage.course_id
        $http.get(apiUrl+"/courses/"+course_id+"/courses_points")
        .success(function (locations) {  

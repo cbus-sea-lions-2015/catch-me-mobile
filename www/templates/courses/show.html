@@ -1,7 +1,7 @@
 <ion-header-bar class="bar-dark" >
    <h2 class="title">Map</h2>
 </ion-header-bar>
-<ion-content class="bar-dark" ng-init="init()">
+<ion-content class="bar-dark" ng-controller="MapCtrl">
    <h3 >{{course.name}}</h3>
    <p>{{course.city}}, {{course.country}} - {{course.created_at}}</p>
    <div id="map" data-tap-disabled="true"></div>
