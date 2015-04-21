@@ -1,14 +1,25 @@
-starter.controller('StarterCtrl', function($scope, $http, $window) {
+starter.controller('StarterCtrl', function($scope, $http, $location, $window) {
    
    $scope.startRun = function() {
-       $http.post('http://catch-me-api.herokuapp.com/courses', {user_id: 4})
+        var user_id = $window.localStorage.userId
+       $http.post('http://catch-me-api.herokuapp.com/courses', {user_id: user_id})
        .success(function (response) {
         console.log(response);
          if (response != false) {
             $window.localStorage.course_id = response;
-            console.log($window.localStorage.course_id)
+
          }
        });
+    $location.url("/app/runs");
    };
+   
+    var user_id = $window.localStorage.userId
 
+    $http.get("http://catch-me-api.herokuapp.com/users/"+user_id+"/courses")
+      .success(function (response) {
+      $scope.courses =response;
+    });
+ 
+
+  
  });

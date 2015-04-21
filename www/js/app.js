@@ -56,18 +56,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     templateUrl: 'templates/login.html',
     controller: 'LoginCtrl',
   })
-   
-  // .state('index',{
-  //   url: "/index",
-  //   views: {
-  //       'menuContent': {
-  //         templateUrl: "templates/users/profile.html"
-  //       }
-  //     }
-  //   // data: {
-  //   //   requiresLogin: false
-  //   // }
-  // })
  
   .state('app', {
     url: "/app",
@@ -79,9 +67,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }
   })
 
- 
-
-
   .state('app.search', {
     url: "/search",
     views: {
@@ -92,36 +77,34 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   })
 
   .state('app.profile', {
-      url: "/profile",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/users/profile.html"
-        }
+    url: "/profile",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/users/profile.html"
       }
-    })
-
-    .state('app.index', {
-      url: "/index",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/index.html"
-        }
-      },
-      data: {
-      requiresLogin: false
     }
-    })
+  })
 
-
-    .state('app.courses', {
-      url: "/courses/new",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/courses/run.html",
-          controller: 'StarterCtrl'
-        }
+  .state('app.courses', {
+    url: "/courses",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/users/profile.html"
       }
-    })
+    }
+  })
+
+  .state('app.index', {
+    url: "/index",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/index.html"
+      }
+    },
+    data: {
+    requiresLogin: false
+  }
+  })
 
   .state('app.runs', {
     url: "/runs",
