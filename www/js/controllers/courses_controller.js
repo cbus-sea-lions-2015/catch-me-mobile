@@ -22,16 +22,8 @@ starter.controller('CoursesCtrl', function( apiUrl, $scope, $ionicModal, $timeou
        $scope.$broadcast('timer-stop');
        $scope.timerRunning = false;
        $interval.cancel($scope.geoLocationData); 
-       // var name = prompt("Name your route");
-       // console.log(name);
        $location.url("/app/show/"+$window.localStorage.course_id);
-      // $http.put(apiUrl+"/courses/"+$window.localStorage.course_id, {course: course})
-      // .success(function (response) {
-      //     console.log('success!!!!!');
-      // $scope.courses =response;
-      
-      //  });
-       
+
    };
 
      $scope.showPosition = function(position) {
