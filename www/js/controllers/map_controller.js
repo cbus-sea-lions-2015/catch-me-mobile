@@ -1,8 +1,23 @@
-starter.controller('MapCtrl', function($scope, $ionicLoading, $compile, $http) {
+starter.controller('MapCtrl', function($window, $scope, $ionicLoading, $compile, $http) {
    
+     
+    
+
+    var course_id = $window.localStorage.course_id
+
+    $http.get("http://catch-me-api.herokuapp.com/courses/"+course_id)
+      .success(function (response) {
+      $scope.course =response;
+    });
+
+   $scope.makeItTrack = function () {
+     console.log('asdasdasd')
+   }
+
    $scope.init = function () {
        
-       $http.get("http://catch-me-api.herokuapp.com/courses/"+58+"/courses_points")
+       var course_id = $window.localStorage.course_id
+       $http.get("http://catch-me-api.herokuapp.com/courses/"+course_id+"/courses_points")
        .success(function (locations) {  
     var center = Math.round(locations.length/2);
     var myLatlng = new google.maps.LatLng(locations[center].latitude,locations[center].longitude);
@@ -19,8 +34,7 @@ starter.controller('MapCtrl', function($scope, $ionicLoading, $compile, $http) {
       for(index in locations){
           coords.push(new google.maps.LatLng(locations[index].latitude, locations[index].longitude));
       };
-    
-    console.log(coords);
+     console.log(coords)
     var flightPlanCoordinates = coords;
     var flightPath = new google.maps.Polyline({
       path: flightPlanCoordinates,

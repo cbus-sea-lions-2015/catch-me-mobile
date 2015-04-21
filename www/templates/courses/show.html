@@ -2,8 +2,9 @@
    <h2 class="title">Map</h2>
 </ion-header-bar>
 <ion-content class="bar-dark" ng-init="init()">
-   <h3 >Running sucks</h3>
-   <p>Dar Salam, Tanzania - 15/05/2020</p>
+   <h3 >{{course.name}}</h3>
+   <p>{{course.city}}, {{course.country}} - {{course.created_at}}</p>
+   <button ng-click="makeItTrack()">Make it a Track</button>
    <div id="map" data-tap-disabled="true"></div>
    <div class="row">
       <div class="col">Ag. Speed</div>
@@ -12,9 +13,9 @@
       <div class="col">Calories</div>
    </div>
    <div class="row">
-      <div class="col"> 5 km/h</div>
-      <div class="col"> 10 km </div>
-      <div class="col">10 km </div>
+      <div class="col"> {{course.average_speed}} km/h</div>
+      <div class="col"> {{course.duration}}  </div>
+      <div class="col"> {{course.distance}} km </div>
       <div class="col"> 1000 cal</div>
    </div>
 </ion-content>
