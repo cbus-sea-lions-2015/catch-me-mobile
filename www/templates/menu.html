@@ -16,8 +16,8 @@
       <h1 class="title">Left</h1>
     </ion-header-bar>
     <ion-content>
-      <ion-list ng-controller="SessionsCtrl">
-        <ion-item  nav-clear menu-close ng-click="login()">
+      <ion-list>
+        <ion-item ng-controller="LoginCtrl" ng-click="login()">
           Login
         </ion-item>
         <ion-item ng-controller="UsersCtrl" nav-clear menu-close ng-click="register()">
@@ -29,10 +29,11 @@
         <ion-item nav-clear menu-close href="#/app/courses">
           My Runs
         </ion-item>
-         <ion-item nav-clear menu-close href="#/app/courses">
-          My Tracks
-        </ion-item>
-        <ion-item nav-clear menu-close ng-click="doLogout()" >
+
+        <ion-item nav-clear menu-close href="#/app/search">
+          Search
+        </ion-item >
+        <ion-item ng-controller="LoginCtrl" ng-click="logout()" value="Log out">
           Logout
         </ion-item>
       </ion-list>

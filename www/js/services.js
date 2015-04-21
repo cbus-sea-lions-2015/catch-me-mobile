@@ -5,7 +5,7 @@ angular.module('starter.services', [])
 
 
 
-});
+})
 
 
 .factory('ClockSrv', function($interval){

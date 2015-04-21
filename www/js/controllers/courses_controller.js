@@ -1,4 +1,4 @@
-starter.controller('CoursesCtrl', function( $scope, $ionicModal, $timeout, $http, $location, $interval, $window) {
+starter.controller('CoursesCtrl', function( $scope, $ionicModal, $timeout, $http, $location, $interval, $window, auth) {
    // Form data for the login modal
    $scope.loginData = {};
    $scope.registerData = {};
