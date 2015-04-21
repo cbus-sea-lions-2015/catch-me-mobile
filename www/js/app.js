@@ -89,7 +89,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: "/courses",
     views: {
       'menuContent': {
-        templateUrl: "templates/users/profile.html"
+        templateUrl: "templates/courses/run.html"
       }
     }
   })
@@ -117,7 +117,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   })
 
   .state('app.show', {
-    url: "/show",
+    url: "/show/:showId",
     views: {
       'menuContent': {
         templateUrl: "templates/courses/show.html",
