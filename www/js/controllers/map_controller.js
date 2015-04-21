@@ -1,11 +1,8 @@
-starter.controller('MapCtrl', function($window, $scope, $ionicLoading, $compile, $http) {
+starter.controller('MapCtrl', function(apiUrl, $window, $scope, $ionicLoading, $compile, $http) {
    
-     
-    
-
     var course_id = $window.localStorage.course_id
 
-    $http.get("http://catch-me-api.herokuapp.com/courses/"+course_id)
+    $http.get(apiUrl+"/courses/"+course_id)
       .success(function (response) {
       $scope.course =response;
     });
@@ -17,7 +14,7 @@ starter.controller('MapCtrl', function($window, $scope, $ionicLoading, $compile,
    $scope.init = function () {
        
        var course_id = $window.localStorage.course_id
-       $http.get("http://catch-me-api.herokuapp.com/courses/"+course_id+"/courses_points")
+       $http.get(apiUrl+"/courses/"+course_id+"/courses_points")
        .success(function (locations) {  
     var center = Math.round(locations.length/2);
     var myLatlng = new google.maps.LatLng(locations[center].latitude,locations[center].longitude);

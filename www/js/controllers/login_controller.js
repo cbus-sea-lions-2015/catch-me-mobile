@@ -1,4 +1,4 @@
-starter.controller('LoginCtrl', function (store, $scope, $location, auth, $state) {
+starter.controller('LoginCtrl', function (store, $scope, $location, $http, auth, $state, apiUrl) {
   $scope.login = function() {
     auth.signin({
       authParams: {
@@ -9,7 +9,8 @@ starter.controller('LoginCtrl', function (store, $scope, $location, auth, $state
       store.set('profile', profile);
       store.set('token', token);
       store.set('refreshToken', refreshToken);
-      // $location.path('/app/profile');
+      // $http.post('http://catch-me-api.herokuapp.com/users', {auth_id: auth.profile.identities[0].user_id});
+      $http.post(apiUrl+"/users", {auth_id: auth.profile.identities[0].user_id});
       console.log('logging in');
     }, function(error) {
     });
@@ -20,7 +21,6 @@ starter.controller('LoginCtrl', function (store, $scope, $location, auth, $state
     console.log('signout');
     store.remove('profile');
     store.remove('token');
-    // $location.path('/login');
     document.location.reload(true);
 
   }
