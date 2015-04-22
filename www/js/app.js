@@ -5,8 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 var starter = angular.module('starter.controllers', []);
-  angular.module('starter.constants',[]).constant('apiUrl','http://localhost:3000');
-  // angular.module('starter.constants',[]).constant('apiUrl','https://catch-me-api.herokuapp.com');
+  // angular.module('starter.constants',[]).constant('apiUrl','http://localhost:3000');
+  angular.module('starter.constants',[]).constant('apiUrl','https://catch-me-api.herokuapp.com');
 
 
 
