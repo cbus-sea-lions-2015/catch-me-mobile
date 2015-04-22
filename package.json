@@ -1,7 +1,7 @@
 {
   "name": "catch-me-mobile",
   "version": "1.0.0",
-  "description": "catch-me-mobile: An Ionic project",
+  "description": "catch-me-mobile: Catch up with your self",
   "dependencies": {
     "express": "^4.12.3",
     "gulp": "^3.5.6",
@@ -21,9 +21,12 @@
     "org.apache.cordova.device",
     "org.apache.cordova.console",
     "com.ionic.keyboard",
-    "org.apache.cordova.inappbrowser"
+    "org.apache.cordova.inappbrowser",
+    "org.apache.cordova.geolocation",
+    "org.apache.cordova.splashscreen"
   ],
   "cordovaPlatforms": [
-    "ios"
+    "ios",
+    "android"
   ]
 }

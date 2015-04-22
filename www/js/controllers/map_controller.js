@@ -42,18 +42,21 @@ starter.controller('MapCtrl', function(apiUrl, $location, $window, $stateParams,
     var myLatlng = new google.maps.LatLng(locations[center].latitude,locations[center].longitude);
     
     var mapOptions = {
-      center: myLatlng,
-      zoom: 14,
+      // center: myLatlng,
+      // zoom: 20,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
+
+    var bounds = new google.maps.LatLngBounds();
 
     var map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
       var coords = [];
       for(index in locations){
-          coords.push(new google.maps.LatLng(locations[index].latitude, locations[index].longitude));
+        bounds.extend(new google.maps.LatLng(locations[index].latitude, locations[index].longitude));
+        coords.push(new google.maps.LatLng(locations[index].latitude, locations[index].longitude));
       };
-     console.log(coords)
+      map.fitBounds(bounds);
     var flightPlanCoordinates = coords;
     var flightPath = new google.maps.Polyline({
       path: flightPlanCoordinates,
