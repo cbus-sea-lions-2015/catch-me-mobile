@@ -22,6 +22,12 @@ starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $lo
   $scope.startRun = function() {
     $scope.name_course.hide();
     var auth_id = auth.profile.identities[0].user_id;
+     
+
+    $http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&sensor=true')
+    .success(function (location){
+      console.log(location);
+    })
 
     $http.post(apiUrl + "/courses", {
         auth_id: auth_id,
@@ -42,7 +48,7 @@ starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $lo
 
   if (auth.isAuthenticated) {
     var auth_id = auth.profile.identities[0].user_id;
-
+    
     $http.get(apiUrl + "/users/" + auth_id + "/courses")
       .success(function(response) {
         $scope.courses = response;

@@ -1,4 +1,4 @@
-starter.controller('MapCtrl', function(apiUrl, $window, $scope, $ionicLoading, $compile, $http) {
+starter.controller('MapCtrl', function(apiUrl, $window, $stateParams, $scope, $ionicLoading, $compile, $http) {
    angular.element(document).ready(function () {
     $scope.init();
    });
@@ -9,7 +9,7 @@ starter.controller('MapCtrl', function(apiUrl, $window, $scope, $ionicLoading, $
 
    $scope.init = function () {
 
-      var course_id = $window.localStorage.course_id
+      var course_id = $stateParams.showId
 
     $http.get(apiUrl+"/courses/"+course_id)
       .success(function (response) {
