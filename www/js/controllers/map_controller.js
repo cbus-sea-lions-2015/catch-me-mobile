@@ -25,7 +25,7 @@ starter.controller('MapCtrl', function(apiUrl, $window, $stateParams, $scope, $i
     
     var mapOptions = {
       center: myLatlng,
-      zoom: 14,
+      zoom: 20,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
