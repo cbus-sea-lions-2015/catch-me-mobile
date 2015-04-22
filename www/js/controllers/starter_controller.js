@@ -24,10 +24,10 @@ starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $lo
     var auth_id = auth.profile.identities[0].user_id;
      
 
-    $http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&sensor=true')
-    .success(function (location){
-      console.log(location);
-    })
+    // $http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&sensor=true')
+    // .success(function (location){
+    //   console.log(location);
+    // })
 
     $http.post(apiUrl + "/courses", {
         auth_id: auth_id,
@@ -37,7 +37,8 @@ starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $lo
         console.log(response);
         if (response != false) {
           $window.localStorage.course_id = response;
-
+          
+          console.log(  $window.localStorage.course_id);
         }
       });
     $location.url("/app/courses/new");

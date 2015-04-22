@@ -3,7 +3,7 @@ starter.controller('MapCtrl', function(apiUrl, $window, $stateParams, $scope, $i
     $scope.init();
    });
 
-   $scope.makeItTrack = function () {
+   $scope.deleteCourse = function () {
      console.log('asdasdasd')
    }
 

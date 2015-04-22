@@ -5,7 +5,16 @@ starter.controller('CoursesCtrl', function( apiUrl, $scope, $ionicModal, $timeou
    $scope.runner_id = {};
    $scope.timerRunning = true;
 
+    $scope.updateCourse = function () {
 
+     var course_id = $window.localStorage.course_id 
+
+    $http.get(apiUrl+"/courses/"+course_id)
+      .success(function (response) {
+      console.log(response)
+      $scope.course =response;
+    });
+    }
 
    $scope.startTimer = function() {
        $scope.$broadcast('timer-start');
@@ -27,15 +36,17 @@ starter.controller('CoursesCtrl', function( apiUrl, $scope, $ionicModal, $timeou
    };
 
      $scope.showPosition = function(position) {
-        console.log($window.localStorage.course_id);
+        $scope.updateCourse();
           var course_position = {latitude: position.coords.latitude,
                                 longitude: position.coords.longitude} 
+      
         console.log(course_position)                   
         $http.post(apiUrl+'/courses_points', { course_point: course_position, course_id: $window.localStorage.course_id })
     }
       
       $scope.getLocationData = function() {
         navigator.geolocation.getCurrentPosition($scope.showPosition);
+
 
       };
 
