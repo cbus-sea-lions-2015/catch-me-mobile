@@ -5,6 +5,9 @@ starter.controller('CoursesCtrl', function(apiUrl, $scope, $ionicModal, $timeout
   $scope.runner_id = {};
   $scope.timerRunning = true;
 
+  
+
+
    $scope.updateCourse = function () {
 
      var course_id = $window.localStorage.course_id 
@@ -13,6 +16,7 @@ starter.controller('CoursesCtrl', function(apiUrl, $scope, $ionicModal, $timeout
       .success(function (response) {
       console.log(response)
       $scope.course =response;
+      $scope.isCathMeIdSet = response.catch_me_course_id;
     });
     }
 
