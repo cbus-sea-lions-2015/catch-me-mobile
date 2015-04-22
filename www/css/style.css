@@ -82,5 +82,8 @@
   position: absolute;
   bottom: 0;
   width: 100%;
->>>>>>> ed5efebbb6da1558438ba0ec5e6a41e0416f2985
+}
+
+.center-text{
+  text-align: center;
 }
