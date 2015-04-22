@@ -16,7 +16,23 @@ starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $lo
   $scope.closeNameCourse = function() {
     $scope.name_course.hide();
   };
+   
 
+  //   $ionicModal.fromTemplateUrl('templates/courses/favorites.html', {
+  //   scope: $scope,
+  //   animation: 'slide-in-up'
+  // }).then(function(modal_favorites) {
+  //   $scope.show_favorites = modal_favorites;
+  // });
+
+  // $scope.openFavorites = function() {
+  //   $scope.show_favorites.show();
+  // };
+
+  // $scope.closeFavorites = function() {
+  //   $scope.show_favorites.hide();
+  // };
+   
 
 
   $scope.startRun = function() {
@@ -37,7 +53,7 @@ starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $lo
         console.log(response);
         if (response != false) {
           $window.localStorage.course_id = response;
-          
+
           console.log(  $window.localStorage.course_id);
         }
       });
@@ -53,9 +69,11 @@ starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $lo
     $http.get(apiUrl + "/users/" + auth_id + "/courses")
       .success(function(response) {
         $scope.courses = response;
+        // $scope.favorite_courses = response.filter(function(course) { return course.favorite == true; });
       });
-  }
-
+       
+  
+  }  
 
   $scope.myRuns = function() {
     $location.url("/app/courses");

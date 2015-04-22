@@ -1,11 +1,31 @@
-starter.controller('MapCtrl', function(apiUrl, $window, $stateParams, $scope, $ionicLoading, $compile, $http) {
+starter.controller('MapCtrl', function(apiUrl, $location, $window, $stateParams, $scope, $ionicLoading, $compile, $http) {
    angular.element(document).ready(function () {
     $scope.init();
    });
 
    $scope.deleteCourse = function () {
-     console.log('asdasdasd')
+    
+    var course_id = $stateParams.showId
+
+    $http.delete(apiUrl+"/courses/"+course_id)
+      .success(function (response) {
+      $scope.course =response;
+    });
+    $location.url("/app/courses");
    }
+   
+   $scope.makeItFavorite = function () {
+    
+    var course_id = $stateParams.showId
+
+    $http.put(apiUrl+"/courses/"+course_id, {course:{favorite: true}})
+      .success(function (response) {
+      $scope.course =response;
+    });
+    $location.url("/app/courses");
+   }
+
+
 
    $scope.init = function () {
 
@@ -16,8 +36,6 @@ starter.controller('MapCtrl', function(apiUrl, $window, $stateParams, $scope, $i
       $scope.course =response;
     });
 
-    
-       var course_id = $window.localStorage.course_id
        $http.get(apiUrl+"/courses/"+course_id+"/courses_points")
        .success(function (locations) {  
     var center = Math.round(locations.length/2);
