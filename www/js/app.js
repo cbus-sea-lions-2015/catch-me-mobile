@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-var starter = angular.module('starter.controllers', []);
+var starter = angular.module('starter.controllers', ['ngCordova']);
 // angular.module('starter.constants',[]).constant('apiUrl','https://catch-me-api.herokuapp.com');
 angular.module('starter.constants',[]).constant('apiUrl','http://localhost:3000');
 
