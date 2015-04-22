@@ -51,11 +51,20 @@ starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $lo
     // .success(function (location){
     //   console.log(location);
     // })
+    
+    $scope.favoriteCourseId = function () {
+      if ($scope.favoriteCourse.course == null) {
+       return null
+      }
+      else {
+       return $scope.favoriteCourse.course.id
+      }
+    }
 
     $http.post(apiUrl + "/courses", {
         auth_id: auth_id,
         name: $scope.courseData.name,
-        catch_me_course_id: $scope.favoriteCourse.course.id
+        catch_me_course_id: $scope.favoriteCourseId()
       })
       .success(function(response) {
         console.log(response);
