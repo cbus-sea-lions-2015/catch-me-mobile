@@ -1,10 +1,12 @@
 <ion-view view-title="Profile">
   <ion-content>
-<h1 ng-show="auth.profile.name">Hello {{auth.profile.name}}</h1>
-<h1 ng-show="!auth.profile.name">Hello Guest...Please log in</h1>
+  <div class="top-half">
+<h1 class="bottom" ng-show="auth.profile.name">Hello {{auth.profile.name}}</h1>
+<div class="bottom" ng-show="!auth.profile.name">Hello Guest...Please log in</div>
+</div>
+<div class="bottom-half">
+  Make sure the GPS is turned on before running!
+</div>
 
-<p>How art Thou,</p>
-
-<p>Run Run Run</p>
 </ion-content>
 </ion-view>
