@@ -22,12 +22,13 @@ starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $lo
   $scope.startRun = function() {
     $scope.name_course.hide();
     var auth_id = auth.profile.identities[0].user_id;
+    // var auth_id = "1481964522";
      
 
-    $http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&sensor=true')
-    .success(function (location){
-      console.log(location);
-    })
+    // $http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&sensor=true')
+    // .success(function (location){
+    //   console.log(location);
+    // })
 
     $http.post(apiUrl + "/courses", {
         auth_id: auth_id,
@@ -58,7 +59,7 @@ starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $lo
 
   $scope.myRuns = function() {
     $location.url("/app/courses");
-    document.location.reload(true);
+    // document.location.reload(true);
   }
 
 
