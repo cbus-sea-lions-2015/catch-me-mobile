@@ -15,14 +15,19 @@ starter.controller('LoginCtrl', function (store, $scope, $location, $http, auth,
     }, function(error) {
     });
   }
+   
 
   $scope.logout = function() {
     auth.signout();
     console.log('signout');
     store.remove('profile');
     store.remove('token');
+    $location.url("/app/login")
     document.location.reload(true);
+  }
 
+  $scope.tokenIsSet = function() {
+    return auth.profile == null
   }
 
 })
