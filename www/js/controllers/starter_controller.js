@@ -1,6 +1,7 @@
 starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $location, $window, apiUrl) {
 
   $scope.courseData = {};
+  $scope.favoriteCourse = {};
 
   $ionicModal.fromTemplateUrl('templates/courses/name_course.html', {
     scope: $scope,
@@ -8,6 +9,11 @@ starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $lo
   }).then(function(modal) {
     $scope.name_course = modal;
   });
+
+  $scope.courseChange = function (response) {
+    console.log($scope.favoriteCourse.course);
+  }
+ 
 
   $scope.openNameCourse = function() {
     $scope.name_course.show();
@@ -47,13 +53,13 @@ starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $lo
 
     $http.post(apiUrl + "/courses", {
         auth_id: auth_id,
-        name: $scope.courseData.name
+        name: $scope.courseData.name,
+        catch_me_course_id: $scope.favoriteCourse.course.id
       })
       .success(function(response) {
         console.log(response);
         if (response != false) {
           $window.localStorage.course_id = response;
-
           console.log(  $window.localStorage.course_id);
         }
       });

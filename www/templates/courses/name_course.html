@@ -9,16 +9,15 @@
                     <div class="input-label">
                         Master a Favorite Run:
                     </div>
-                    <select>
-                        <option selected > none </option>
-                        <option ng-repeat="course in favorite_courses" collection-item-height="150" collection-item-width="'100%'">{{course.name}} - {{course.created_at}} </option>
+                    <select ng-model="favoriteCourse.course" ng-options="course.name for course in courses" ng-change="courseChange()">
+                        <option value="">-- choose favorite --</option>
                     </select>
                 </label>
             </div>
             <div class="list">
                 <label class="item item-input">
                     <span class="input-label">New Course Name: </span>
-                    <input type="text" ng-modecollection-repeat="course in courses" l="courseData.name">
+                    <input type="text" ng-model="courseData.name">
                 </label>
                 <label class="item">
                     <button class="button button-block button-positive" type="submit">Log in</button>
