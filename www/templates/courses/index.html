@@ -6,11 +6,10 @@
                      <button class="button col" ng-click="openNameCourse()">Start Running!</button>
                 </div>
                  <div class="col">
-                <!-- <button class="button col" ng-click="openFavorites()">Filter by Favorites</button> -->
+                <button class="button col" ng-click="openFavorites()">Filter by Favorites</button>
                 </div>
             </div>
             <ion-item collection-repeat="course in courses">
-                <!-- <a href={{ "#/app/show/5"}}> {{course.name}}</a> -->
                 <a href={{"#/app/show/"+course.id}}>{{course.name}}</a>
                 <p>{{course.city}}, {{course.country}} - {{course.created_at}}</p>
                 <p> {{course.favorite}}</p>

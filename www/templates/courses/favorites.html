@@ -9,8 +9,10 @@
                 <button class="button col" ng-click="closeFavorites()">Show all</button>
                 </div>
             </div>
-            <ion-item collection-repeat="course in favorite_courses">
-                <a href={{"#/app/show/"+course.id}}>{{course.name}}</a>
+            <ion-item collection-repeat="course in favorite_courses"
+              collection-item-height="150"
+              collection-item-width="'100%'">
+                <a ng-click="closeFavorites()" href={{"#/app/show/"+course.id}}>{{course.name}}</a>
                 <p>{{course.city}}, {{course.country}} - {{course.created_at}}</p>
                 <p> {{course.favorite}}</p>
                 <div class="row">
