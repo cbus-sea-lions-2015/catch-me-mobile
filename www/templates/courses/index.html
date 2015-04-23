@@ -9,6 +9,7 @@
                 <button class="button col" ng-click="openFavorites()">Filter by Favorites</button>
                 </div>
             </div>
+            <ion-list>
             <ion-item collection-repeat="course in courses">
                 <a href={{"#/app/show/"+course.id}}>{{course.name}}</a>
                 <p>{{course.city}}, {{course.country}} - {{course.created_at}}</p>
@@ -17,15 +18,15 @@
                     <div class="col">Ag. Speed</div>
                     <div class="col">Total Time</div>
                     <div class="col">Distance</div>
-                    <div class="col">Calories</div>
                 </div>
+                <hr>
                 <div class="row">
                     <div class="col"> {{course.average_speed}} km/h</div>
                     <div class="col"> {{course.duration}} </div>
                     <div class="col"> {{course.distance}} km </div>
-                    <div class="col"> 1000 cal</div>
                 </div>
-            </ion-item>
+                </ion-item>
+            </ion-list>
         </div>
     </ion-content>
 </ion-view>

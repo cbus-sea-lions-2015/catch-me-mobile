@@ -27,6 +27,8 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.constants', '
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    $location.path('/app/index');
+    $rootScope.$apply();
   });
 })
 
