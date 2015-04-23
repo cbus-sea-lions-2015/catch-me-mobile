@@ -14,7 +14,9 @@
                 <div class="row comparison-cath-me"> {{course.comparison_speed}} km </div>
         </div>
         <div>
-            <h1 class="timer" style="text-align: center"><timer>{{hours}}:{{minutes}}:{{seconds}}:{{millis}}</timer></h1>
+            <ion-spinner icon="ripple"></ion-spinner>
+           <h1 class="timer" style="text-align: center"><timer>
+            {{hours}}:{{minutes}}:{{seconds}}:{{millis}}</timer></h1>
             <!--     <button onclick="startTimer()" onclick="startRun()" ng-disabled="timerRunning">Start</button> -->
         </div>
         <button class="stoptimer" ng-click="stopTimer()" ng-disabled="!timerRunning">Stop Timer</button>

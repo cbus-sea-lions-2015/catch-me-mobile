@@ -87,3 +87,12 @@
 .center-text{
   text-align: center;
 }
+
+.spinner svg {
+ display: block;
+ margin: auto;
+ width: 75px;
+ height: 75px;
+ stroke: orangered;
+ fill: #444;
+}
