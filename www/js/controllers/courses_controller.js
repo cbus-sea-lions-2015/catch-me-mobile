@@ -23,7 +23,7 @@ starter.controller('CoursesCtrl', function(apiUrl, $scope, $ionicModal, $timeout
   }
 
   $scope.geoLocationData = $interval(
-    $scope.getLocationData, 3000
+    $scope.getLocationData, 500
   );
 
   $scope.startTimer = function() {

@@ -102,6 +102,12 @@
 }
 
 .title-stats {
-  text-align: center;
-  
+  text-align: center;  
+}
+
+.new-body {
+  padding-top: 40%;
+  /*position: relative;*/
+  /*width: 100%;*/
+  /*margin: auto;*/
 }

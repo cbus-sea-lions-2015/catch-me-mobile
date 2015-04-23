@@ -7,28 +7,29 @@
         </div>
     </ion-header-bar>
     <ion-content>
-        <div ng-show="isCathMeIdSet">
-                <div class="row">
-                    <!-- <div class="arrow-up"> </div> -->
-                </div>
-                <div class="row comparison-cath-me"> {{course.comparison_speed}} miles/hour
-                </div>
-        </div>
-        <div>
-            <ion-spinner icon="ripple"></ion-spinner>
-           <h1 class="timer" style="text-align: center"><timer>
-            {{hours}}:{{minutes}}:{{seconds}}:{{millis}}</timer></h1>
-            <!--     <button onclick="startTimer()" onclick="startRun()" ng-disabled="timerRunning">Start</button> -->
-        </div>
-        <button class="stoptimer" ng-click="stopTimer()" ng-disabled="!timerRunning">Stop Timer</button>
-        <!-- <button ng-click="resumeTimer()" ng-disabled="timerRunning">Resume Timer</button> -->
-        <div class="row">
-            <div class="col title-stats">Ag. Speed</div>
-            <div class="col title-stats">Distance</div>
-        </div>
-        <div class="row">
-            <div class="col stats"> {{course.average_speed}} miles/hour</div>
-            <div class="col stats"> {{course.distance}} miles </div>
+        <div class="new-body">
+            <div ng-show="isCathMeIdSet">
+                    <div class="row">
+                    </div>
+                    <div class="row comparison-cath-me"> {{course.comparison_speed}} miles/hour
+                    </div>
+            </div>
+            <div>
+                <ion-spinner icon="ripple"></ion-spinner>
+               <h1 class="timer" style="text-align: center"><timer>
+                {{hours}}:{{minutes}}:{{seconds}}:{{millis}}</timer></h1>
+                <!--     <button onclick="startTimer()" onclick="startRun()" ng-disabled="timerRunning">Start</button> -->
+            </div>
+            <button class="stoptimer" ng-click="stopTimer()" ng-disabled="!timerRunning">Stop Timer</button>
+            <!-- <button ng-click="resumeTimer()" ng-disabled="timerRunning">Resume Timer</button> -->
+            <div class="row">
+                <div class="col title-stats">Ag. Speed</div>
+                <div class="col title-stats">Distance</div>
+            </div>
+            <div class="row">
+                <div class="col stats"> {{course.average_speed}} miles/hour</div>
+                <div class="col stats"> {{course.distance}} miles </div>
+            </div>
         </div>
     </ion-content>
 </ion-view>
