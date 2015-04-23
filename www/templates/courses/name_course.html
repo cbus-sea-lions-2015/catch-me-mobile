@@ -1,13 +1,16 @@
 <ion-modal-view>
     <ion-header-bar>
         <h1 class="title"> Name Run</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeNameCourse()">X</button>
+    </div>
     </ion-header-bar>
     <ion-content>
         <form ng-submit="startRun()">
             <div class="list">
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Master a Favorite Run:
+                        Run Against:
                     </div>
                     <select ng-model="favoriteCourse.course" ng-options="course.name for course in favorite_courses" ng-change="courseChange()">
                         <option value="">-- choose favorite --</option>
@@ -20,7 +23,7 @@
                     <input type="text" ng-model="courseData.name">
                 </label>
                 <label class="item">
-                    <button class="button button-block button-positive" type="submit">Log in</button>
+                    <button class="button button-block button-positive" type="submit">Start Running!</button>
                 </label>
             </div>
         </form>
