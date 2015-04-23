@@ -1,9 +1,6 @@
 <ion-modal-view>
     <ion-header-bar>
         <h1 class="title"> Name Run</h1>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="closeNameCourse()">X</button>
-    </div>
     </ion-header-bar>
     <ion-content>
         <form ng-submit="startRun()">
@@ -24,6 +21,8 @@
                 </label>
                 <label class="item">
                     <button class="button button-block button-positive" type="submit">Start Running!</button>
+
+                    <button class="button button-clear" ng-click="closeNameCourse()">Close</button>
                 </label>
             </div>
         </form>

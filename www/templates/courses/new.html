@@ -9,9 +9,10 @@
     <ion-content>
         <div ng-show="isCathMeIdSet">
                 <div class="row">
-                    <div class="arrow-up"> </div>
+                    <!-- <div class="arrow-up"> </div> -->
                 </div>
-                <div class="row comparison-cath-me"> {{course.comparison_speed}} km </div>
+                <div class="row comparison-cath-me"> {{course.comparison_speed}} miles/hour
+                </div>
         </div>
         <div>
             <ion-spinner icon="ripple"></ion-spinner>
@@ -26,8 +27,8 @@
             <div class="col">Distance</div>
         </div>
         <div class="row">
-            <div class="col"> {{course.average_speed}} km/h</div>
-            <div class="col"> {{course.distance}} km </div>
+            <div class="col"> {{course.average_speed}} miles/hour</div>
+            <div class="col"> {{course.distance}} miles </div>
         </div>
     </ion-content>
 </ion-view>
