@@ -8,15 +8,13 @@ var starter = angular.module('starter.controllers', []);
   // angular.module('starter.constants',[]).constant('apiUrl','http://localhost:3000');
   angular.module('starter.constants',[]).constant('apiUrl','https://catch-me-api.herokuapp.com');
 
-
-
 angular.module('starter', ['ionic', 'starter.controllers','starter.constants', 'starter.services', 'timer', 'auth0',
   'angular-storage',
-  'angular-jwt','ngCordova'
+  'angular-jwt','ngCordova','angles'
 ])
 
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,$location,$rootScope) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -27,6 +25,8 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.constants', '
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    $location.path('/app/index');
+    $rootScope.$apply();
   });
 })
 
@@ -80,7 +80,8 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.constants', '
     url: "/profile",
     views: {
       'menuContent': {
-        templateUrl: "templates/users/profile.html"
+        templateUrl: "templates/users/profile.html",
+        controller: 'UsersCtrl'
       }
     }
   })
@@ -157,3 +158,4 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.constants', '
   $httpProvider.interceptors.push('jwtInterceptor');
 
 });
+

@@ -1,11 +1,16 @@
 <ion-view view-title="Profile">
-  <ion-content>
-      <img src="{{auth.profile.picture}}" alt="avatar">
-    <p>I guess this is where we will list their previous courses and stats</p>
-    <p>with delete feature</p>
-    <p>His name is {{auth.profile.name}}</p>
-    
-    <p>{{auth.profile.description}}</p>
-    <p>Location: {{auth.profile.location}}</p>
-  </ion-content>
+  <ion-content class="list">
+    <div class="item item-avatar">
+      <img src="{{auth.profile.picture}}">
+      <h2>{{auth.profile.name}}</h2>
+      <p>{{auth.profile.description}}</p>
+      <p>Location: {{auth.profile.location}}</p>
+    </div>
+
+    <ion-content ng-init="getChartData()" class="list">
+    <div class="item item-avatar">
+    <h3>Running Trend so far</h3>
+      <canvas chart="Bar" options="options" data="chart" bottom="0" width="300" height="300"></canvas>
+      </div>
+    </ion-content>
 </ion-view>

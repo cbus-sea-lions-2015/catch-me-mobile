@@ -24,9 +24,9 @@ starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $lo
   };
    
 
-    $ionicModal.fromTemplateUrl('templates/courses/favorites.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
+  $ionicModal.fromTemplateUrl('templates/courses/favorites.html', {
+  scope: $scope,
+  animation: 'slide-in-up'
   }).then(function(modal_favorites) {
     $scope.show_favorites = modal_favorites;
   });
@@ -44,8 +44,6 @@ starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $lo
   $scope.startRun = function() {
     $scope.name_course.hide();
     var auth_id = auth.profile.identities[0].user_id;
-    // var auth_id = "1481964522";
-     
 
     // $http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&sensor=true')
     // .success(function (location){
@@ -70,13 +68,12 @@ starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $lo
         console.log(response);
         if (response != false) {
           $window.localStorage.course_id = response;
-          console.log(  $window.localStorage.course_id);
+          console.log('start run');
+          console.log($window.localStorage.course_id);
         }
       });
+
     $location.url("/app/courses/new");
-
-    
-
   };
 
   if (auth.isAuthenticated) {
@@ -88,9 +85,7 @@ starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $lo
         $scope.favorite_courses = response.filter(function(course) { return course.favorite == true; });
       });
        
-  
   }  
-
   $scope.myRuns = function() {
     $location.url("/app/courses");
     // document.location.reload(true);

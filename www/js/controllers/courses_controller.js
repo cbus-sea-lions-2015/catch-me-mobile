@@ -5,19 +5,17 @@ starter.controller('CoursesCtrl', function(apiUrl, $scope, $ionicModal, $timeout
   $scope.runner_id = {};
   $scope.timerRunning = true;
 
-  
-
-
    $scope.updateCourse = function () {
 
-     var course_id = $window.localStorage.course_id 
-
-    $http.get(apiUrl+"/courses/"+course_id)
-      .success(function (response) {
-      console.log(response)
-      $scope.course =response;
-      $scope.isCathMeIdSet = response.catch_me_course_id;
-    });
+    var course_id = $window.localStorage.course_id 
+    
+      $http.get(apiUrl+"/courses/"+course_id)
+        .success(function (response) {
+        console.log(response)
+        $scope.course =response;
+        $scope.isCathMeIdSet = response.catch_me_course_id;
+      });
+      
     }
 
   $scope.getLocationData = function() {
@@ -31,7 +29,8 @@ starter.controller('CoursesCtrl', function(apiUrl, $scope, $ionicModal, $timeout
   $scope.startTimer = function() {
     $scope.$broadcast('timer-start');
     $scope.timerRunning = true;
-    // $scope.geoLocationData();
+    console.log('startTImer');
+    console.log($window.localStorage.course_id);
   }
 
   $scope.resumeTimer = function() {
@@ -49,16 +48,25 @@ starter.controller('CoursesCtrl', function(apiUrl, $scope, $ionicModal, $timeout
   }
 
   $scope.showPosition = function(position) {
-      $scope.updateCourse();
+    
+     $scope.updateCourse();
     var course_position = {
         latitude: position.coords.latitude,
         longitude: position.coords.longitude
       }
+
+    var status = function () {
+      course_position.latitude
+      course_position.longitude
+    }
+
     console.log("latitude: ", position.coords.latitude);
     console.log("longitude: ", position.coords.longitude);
+
     $http.post(apiUrl + '/courses_points', {
       course_point: course_position,
-      course_id: $window.localStorage.course_id
+      course_id: $window.localStorage.course_id,
+      catch_me_status: status
     })
   }
 

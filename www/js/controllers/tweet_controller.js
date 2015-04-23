@@ -4,7 +4,6 @@ starter.controller('TweetCtrl', function($scope, $cordovaSocialSharing) {
   $scope.shareAnywhere = function() {
     console.log("we in here")
      
-
          $cordovaSocialSharing.shareViaTwitter("message", "image", "link")
         .then(function(result) {
           // Success!
