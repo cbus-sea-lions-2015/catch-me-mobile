@@ -1,11 +1,12 @@
 <ion-view view-title="Profile">
   <ion-content class="list">
-  <div class="item item-avatar" >
+    <div class="item item-avatar">
       <img src="{{auth.profile.picture}}">
-    <h2>{{auth.profile.name}}</h2>
-    
-    <p>{{auth.profile.description}}</p>
-    <p>Location: {{auth.profile.location}}</p>
+      <h2>{{auth.profile.name}}</h2>
+      <p>{{auth.profile.description}}</p>
+      <p>Location: {{auth.profile.location}}</p>
     </div>
-  </ion-content>
+    <ion-content ng-init="getChartData()">
+      <canvas chart="Bar" options="options" data="chart" width="300" height="300"></canvas>
+    </ion-content>
 </ion-view>

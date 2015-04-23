@@ -29,21 +29,21 @@ starter.controller('MapCtrl', function(apiUrl, $location, $window, $stateParams,
 
    $scope.init = function () {
 
-      var course_id = $stateParams.showId
+    var course_id = $stateParams.showId
 
     $http.get(apiUrl+"/courses/"+course_id)
       .success(function (response) {
       $scope.course =response;
     });
 
-       $http.get(apiUrl+"/courses/"+course_id+"/courses_points")
-       .success(function (locations) {  
-    var center = Math.round(locations.length/2);
-    var myLatlng = new google.maps.LatLng(locations[center].latitude,locations[center].longitude);
-    
-    var mapOptions = {
-      // center: myLatlng,
-      // zoom: 20,
+    $http.get(apiUrl+"/courses/"+course_id+"/courses_points")
+    .success(function (locations) {  
+      var center = Math.round(locations.length/2);
+      var myLatlng = new google.maps.LatLng(locations[center].latitude,locations[center].longitude);
+      
+      var mapOptions = {
+        center: myLatlng,
+        zoom: 20,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 

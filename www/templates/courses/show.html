@@ -1,38 +1,31 @@
-<ion-header-bar class="bar-dark" >
-   <h2 class="title">Map</h2>
+<ion-header-bar class="bar-dark">
+    <h2 class="title">Map</h2>
 </ion-header-bar>
-<ion-content class="bar-dark" ng-controller="MapCtrl">
-<div class="row">
-      <div class="col">
-        <h3 >{{course.name}}</h3>
-        <p>{{course.city}}, {{course.country}} - {{course.created_at}}</p>
-      </div>
-      <div class="col">
-        <button class="button" ng-click="deleteCourse()">Delete</button>
-      </div>
+<ion-content class="bar-dark" ng-controller="MapCtrl" ng-init="init()">
+    <div class="row">
         <div class="col">
-        <button class="button" ng-click="makeItFavorite()">Favorite</button>
-      </div>
-   </div>
-   <div id="map" data-tap-disabled="true"></div>
-   
-
-   <div class="row">
-      <div class="col">Ag. Speed</div>
-      <div class="col">Total Time</div>
-      <div class="col">Distance</div>
-      <div class="col">Calories</div>
-   </div>
-   <div class="row">
-      <div class="col"> {{course.average_speed}} km/h</div>
-      <div class="col"> {{course.duration}}  </div>
-      <div class="col"> {{course.distance}} miles </div>
-      <div class="col"> 1000 cal</div>
-   </div>
-
-
-   <button ng-controller="TweetCtrl" class="button" ng-click=" shareAnywhere()">Tweet About it!</button>
-
+            <h3>{{course.name}}</h3>
+            <p> {{course.created_at}}</p>
+        </div>
+        <div class="col">
+            <button class="button" ng-click="deleteCourse()">Delete</button>
+        </div>
+        <div class="col">
+            <button class="button" ng-click="makeItFavorite()">Favorite</button>
+        </div>
+    </div>
+    <div id="map" data-tap-disabled="true"></div>
+    <div class="row">
+        <div class="col">Ag. Speed</div>
+        <div class="col">Total Time</div>
+        <div class="col">Distance</div>
+    </div>
+    <div class="row">
+        <div class="col"> {{course.average_speed}} km/h</div>
+        <div class="col"> {{course.duration}} </div>
+        <div class="col"> {{course.distance}} miles </div>
+    </div>
+    <button ng-controller="TweetCtrl" class="button" ng-click=" shareAnywhere()">Tweet About it!</button>
 </ion-content>
-<!-- <ion-footer-bar class="bar-dark">
-</ion-footer-bar> -->
+<ion-footer-bar class="bar-dark">
+</ion-footer-bar>
