@@ -1,8 +1,9 @@
-<ion-view view-title="Profile">
+<ion-view view-title>
   <ion-content>
   <div class="top-half">
+  <img src=>
+<h1 class="bottom" ng-show="!auth.profile.name">Hello Guest...Please log in</h1>
 <h1 class="bottom" ng-show="auth.profile.name">Hello {{auth.profile.name}}</h1>
-<div class="bottom" ng-show="!auth.profile.name">Hello Guest...Please log in</div>
 </div>
 <div class="bottom-half">
   Make sure the GPS is turned on before running!
