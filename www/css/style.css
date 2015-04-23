@@ -96,3 +96,12 @@
  stroke: orangered;
  fill: #444;
 }
+
+.stats {
+  text-align: center;
+}
+
+.title-stats {
+  text-align: center;
+  
+}

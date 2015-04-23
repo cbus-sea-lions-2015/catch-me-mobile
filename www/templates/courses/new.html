@@ -23,12 +23,12 @@
         <button class="stoptimer" ng-click="stopTimer()" ng-disabled="!timerRunning">Stop Timer</button>
         <!-- <button ng-click="resumeTimer()" ng-disabled="timerRunning">Resume Timer</button> -->
         <div class="row">
-            <div class="col">Ag. Speed</div>
-            <div class="col">Distance</div>
+            <div class="col title-stats">Ag. Speed</div>
+            <div class="col title-stats">Distance</div>
         </div>
         <div class="row">
-            <div class="col"> {{course.average_speed}} miles/hour</div>
-            <div class="col"> {{course.distance}} miles </div>
+            <div class="col stats"> {{course.average_speed}} miles/hour</div>
+            <div class="col stats"> {{course.distance}} miles </div>
         </div>
     </ion-content>
 </ion-view>
