@@ -14,7 +14,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.constants', '
 ])
 
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,$location,$rootScope) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -158,3 +158,4 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.constants', '
   $httpProvider.interceptors.push('jwtInterceptor');
 
 });
+
