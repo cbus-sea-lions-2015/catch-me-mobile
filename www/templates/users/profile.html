@@ -1,5 +1,7 @@
 <ion-view view-title="Profile">
-  <ion-content>
+  <ion-content ng-init="getChartData()">
+
+  <button class="button col" ng-click="getChartData()">Filter by Favorites</button>
       <img src="{{auth.profile.picture}}" alt="avatar">
     <p>I guess this is where we will list their previous courses and stats</p>
     <p>with delete feature</p>
@@ -7,5 +9,6 @@
     
     <p>{{auth.profile.description}}</p>
     <p>Location: {{auth.profile.location}}</p>
+    <canvas chart="Bar" options="options" data="chart" width="300" height="300"></canvas>
   </ion-content>
 </ion-view>
