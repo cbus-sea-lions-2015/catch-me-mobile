@@ -14,7 +14,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.constants', '
 ])
 
 
-.run(function($ionicPlatform,$location,$rootScope) {
+.run(function($ionicPlatform,$location) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -25,8 +25,9 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.constants', '
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    // $location.path('/app/index');
     $location.path('/app/index');
-    $rootScope.$apply();
+    // $rootScope.$apply();
   });
 })
 
@@ -77,16 +78,18 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.constants', '
   })
 
   .state('app.profile', {
+    cache: false,
     url: "/profile",
     views: {
       'menuContent': {
-        templateUrl: "templates/users/profile.html",
-        controller: 'UsersCtrl'
+        templateUrl: "templates/users/profile.html"//,
+        // controller: 'UsersCtrl'
       }
     }
   })
 
   .state('app.courses', {
+    cache: false,
     url: "/courses",
     views: {
       'menuContent': {
@@ -96,6 +99,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.constants', '
   })
 
   .state('app.runs', {
+    cache: false,
     url: "/courses/new",
     views: {
       'menuContent': {
@@ -109,7 +113,8 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.constants', '
     url: "/index",
     views: {
       'menuContent': {
-        templateUrl: "templates/index.html"
+        templateUrl: "templates/index.html",
+        controller: "LoginCtrl"
       }
     },
     data: {
