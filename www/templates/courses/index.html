@@ -13,17 +13,15 @@
             <ion-item collection-repeat="course in courses">
                 <a href={{"#/app/show/"+course.id}}>{{course.name}}</a>
                 <p> {{course.created_at}}</p>
-                <p> {{course.favorite}}</p>
                 <div class="row">
                     <div class="col">Ag. Speed</div>
                     <div class="col">Total Time</div>
                     <div class="col">Distance</div>
                 </div>
-                <hr>
                 <div class="row">
-                    <div class="col"> {{course.average_speed}} km/h</div>
+                    <div class="col"> {{course.average_speed}} miles/hour</div>
                     <div class="col"> {{course.duration}} </div>
-                    <div class="col"> {{course.distance}} km </div>
+                    <div class="col"> {{course.distance}} miles </div>
                 </div>
                 </ion-item>
             </ion-list>

@@ -96,3 +96,18 @@
  stroke: orangered;
  fill: #444;
 }
+
+.stats {
+  text-align: center;
+}
+
+.title-stats {
+  text-align: center;  
+}
+
+.new-body {
+  padding-top: 40%;
+  /*position: relative;*/
+  /*width: 100%;*/
+  /*margin: auto;*/
+}
