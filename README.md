@@ -71,4 +71,3 @@ A user should be able to :
     - Cordova 
     - Phone Gap plugins
 - AuthO
-
