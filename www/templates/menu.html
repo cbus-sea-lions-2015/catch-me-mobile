@@ -17,15 +17,16 @@
     <ion-content>
       <ion-list>
          
-        <ion-item ng-show="tokenIsSet()" menu-close ng-controller="LoginCtrl" ng-click="login()" >
+        <ion-item ng-show="tokenIsSet()" menu-close ng-controller="LoginCtrl" ng-click="login()" class="item item-icon-left center-text" >
+        <i class="icon ion-log-in"></i>
           Login
         </ion-item>
 
-        <ion-item  menu-close href="#/app/profile" class="item item-icon-left center-text">
+        <ion-item ng-show="auth.profile" menu-close ng-controller="UsersCtrl" ng-click="myProfile()" class="item item-icon-left center-text">
         <i class="icon ion-person"></i>
         Profile
         </ion-item>
-        <ion-item ng-controller="StarterCtrl" ng-click="myRuns()" menu-close class="item item-icon-left item-icon-right center-text">
+        <ion-item ng-show="auth.profile" ng-controller="StarterCtrl" ng-click="myRuns()" menu-close class="item item-icon-left item-icon-right center-text">
         <i class="icon ion-android-bicycle"></i>
         My Runs
           <i class="icon ion-android-walk"></i>

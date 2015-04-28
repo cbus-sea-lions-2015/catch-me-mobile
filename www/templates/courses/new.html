@@ -9,7 +9,11 @@
     <ion-content>
         <div class="new-body">
             <div ng-show="isCathMeIdSet">
-                    <div class="row">
+                    <div class="row" ng-show="course.comparison_speed >= 0">
+                    <i class="icon ion-arrow-graph-up-right balanced icon-big"></i>
+                    </div>
+                    <div class="row" ng-show="course.comparison_speed < 0">
+                    <i class="icon ion-arrow-graph-down-right assertive icon-big"></i>
                     </div>
                     <div class="row comparison-cath-me"> {{course.comparison_speed}} miles/hour
                     </div>
@@ -20,7 +24,7 @@
                 {{hours}}:{{minutes}}:{{seconds}}:{{millis}}</timer></h1>
                 <!--     <button onclick="startTimer()" onclick="startRun()" ng-disabled="timerRunning">Start</button> -->
             </div>
-            <button class="stoptimer" ng-click="stopTimer()" ng-disabled="!timerRunning">Stop Timer</button>
+            <button class="button button-assertive stoptimer" ng-click="stopTimer()" ng-disabled="!timerRunning">Stop Timer</button>
             <!-- <button ng-click="resumeTimer()" ng-disabled="timerRunning">Resume Timer</button> -->
             <div class="row">
                 <div class="col title-stats">Ag. Speed</div>

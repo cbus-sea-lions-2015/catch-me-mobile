@@ -21,16 +21,16 @@
         <div class="col stats"> {{course.distance}} miles </div>
     </div>
    
-      <div class="row">
-         <div class="col">
-            <button class="button button-block" ng-click="deleteCourse()">Delete</button>
-        </div>
-        <div class="col">
-            <button class="button button-block" ng-click="makeItFavorite()">Favorite</button>
-        </div>
-         <div class="col">
-         <button ng-controller="TweetCtrl" class="button button-block" ng-click=" shareAnywhere()">Tweet About it!</button>
-        </div>
+      <div class="button-bar">
+         <!-- <div class="col"> -->
+            <button class="button icon ion-trash-a" ng-click="deleteCourse()"></button>
+        <!-- </div> -->
+        <!-- <div class="col"> -->
+            <button class="button icon ion-heart" ng-click="makeItFavorite()"></button>
+        <!-- </div> -->
+         <!-- <div class="col"> -->
+         <button ng-controller="TweetCtrl" class="button icon ion-social-twitter" ng-click=" shareAnywhere(course.average_speed)"></button>
+        <!-- </div> -->
     </div>
 </ion-content>
 

@@ -1,23 +1,23 @@
 <ion-modal-view view-title="Favorite Runs">
     <ion-content>
         <div  class="buttons">
-            <div class="row">
-                <div class="col">
-                     <button class="button col" ng-click="openNameCourse()">Start Running!</button>
-                </div>
-                 <div class="col">
-                <button class="button col" ng-click="closeFavorites()">Show all</button>
-                </div>
+            <div class="button-bar">
+                <!-- <div class="col"> -->
+                     <button class="button button-assertive" ng-click="openNameCourse()">Start Running!</button>
+                <!-- </div> -->
+                 <!-- <div class="col"> -->
+                <button class="button button-assertive" ng-click="closeFavorites()">Show all</button>
+                <!-- </div> -->
             </div>
             <ion-item collection-repeat="course in favorite_courses"
               collection-item-height="150"
               collection-item-width="'100%'">
-                <a ng-click="closeFavorites()" href={{"#/app/show/"+course.id}}>{{course.name}}</a>
-                <p> {{course.created_at}}</p>
+                <a ng-click="closeFavorites()" href={{"#/app/show/"+course.id}} class="run-list">{{course.name}}</a>
+                <p class="lead"> {{course.created_at}}</p>
                 <div class="row">
-                    <div class="col">Ag. Speed</div>
-                    <div class="col">Total Time</div>
-                    <div class="col">Distance</div>
+                    <div class="col header">Ag. Speed</div>
+                    <div class="col header">Total Time</div>
+                    <div class="col header">Distance</div>
                 </div>
                 <div class="row">
                     <div class="col"> {{course.average_speed}} km/h</div>

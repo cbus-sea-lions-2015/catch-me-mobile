@@ -1,4 +1,4 @@
-starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $location, $window, apiUrl) {
+starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $location, $window, apiUrl, $state) {
 
   $scope.courseData = {};
   $scope.favoriteCourse = {};
@@ -44,11 +44,6 @@ starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $lo
   $scope.startRun = function() {
     $scope.name_course.hide();
     var auth_id = auth.profile.identities[0].user_id;
-
-    // $http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&sensor=true')
-    // .success(function (location){
-    //   console.log(location);
-    // })
     
     $scope.favoriteCourseId = function () {
       if ($scope.favoriteCourse.course == null) {
@@ -65,15 +60,14 @@ starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $lo
         catch_me_course_id: $scope.favoriteCourseId()
       })
       .success(function(response) {
-        console.log(response);
         if (response != false) {
           $window.localStorage.course_id = response;
-          console.log('start run');
-          console.log($window.localStorage.course_id);
         }
       });
 
-    $location.url("/app/courses/new");
+    // $location.url("/app/courses/new");
+    $state.go('app.runs', {}, {cache: true});
+    
   };
 
   if (auth.isAuthenticated) {
@@ -87,9 +81,8 @@ starter.controller('StarterCtrl', function(auth, $ionicModal, $scope, $http, $lo
        
   }  
   $scope.myRuns = function() {
-    $location.url("/app/courses");
-    // document.location.reload(true);
+    // $location.url("/app/courses");
+    $state.go('app.courses', {}, {cache: true});
   }
-
 
 });
